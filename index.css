@@ -1,0 +1,14 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
