@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import Button from '../../../../common/Button/Button';
 import Input from '../../../../common/Input/Input';
 import styles from './SearchBar.module.css';

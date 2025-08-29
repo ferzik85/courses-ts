@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
+import type { AppDispatch } from '../../store'; 
 import { addAuthor, deleteAuthor } from '../../store/authors/thunk';
 import { addCourse, updateCourse } from '../../store/courses/thunk';
 import Button from '../../common/Button/Button';
@@ -17,7 +18,7 @@ import styles from './CourseForm.module.css';
 function CourseForm() {
 	const formId = 'courseCreateOrEditForm';
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
+	const appDispatch = useDispatch<AppDispatch>();
 	const params = useParams();
 	const courseId = params.courseId ?? null;
 	const isAddForm = courseId == null;
@@ -62,11 +63,11 @@ function CourseForm() {
 		setCourseAuthorIds([...courseAuthorIds.filter((courseAuthorId) => courseAuthorId !== authorId)]);
 	};
 
-	const handleCreateAuthor = (name: string) => dispatch(addAuthor(name));
+	const handleCreateAuthor = (name: string) => appDispatch(addAuthor(name));
 
 	const handleDeleteAuthor = (e: React.MouseEvent, authorId: string) => {
 		e.preventDefault();
-		dispatch(deleteAuthor(authorId));
+		appDispatch(deleteAuthor(authorId));
 		handleRemoveAuthorFromCourse(null, authorId);
 	};
 
@@ -85,9 +86,9 @@ function CourseForm() {
 		}
 		const course = { id: '', title, description, creationDate: getCurrentDate(), duration: +duration, authors: [...courseAuthorIds] };
 		if (isAddForm) {
-			dispatch(addCourse(course));
+			appDispatch(addCourse(course));
 		} else {
-			dispatch(
+			appDispatch(
 				updateCourse({
 					...course,
 					id: courseId,

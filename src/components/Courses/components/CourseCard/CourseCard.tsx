@@ -1,5 +1,5 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
+import type { AppDispatch } from '../../../../store'; 
 import { Link, useNavigate } from 'react-router';
 import classnames from 'classnames';
 import { deleteCourse } from '../../../../store/courses/thunk';
@@ -13,8 +13,8 @@ import styles from './CourseCard.module.css';
 function CourseCard({ id, title, description, creationDate, duration, authors } : any) {
 	const buttonStyle = 'material-symbols-outlined';
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
-	const handleDeleteCourse = () => dispatch(deleteCourse(id));
+	const appDispatch = useDispatch<AppDispatch>();
+	const handleDeleteCourse = () => appDispatch(deleteCourse(id));
 	const handleEditCourse = () => navigate(`update/${id}`);
 	return (
 		<div className={styles.card}>
