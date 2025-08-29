@@ -1,0 +1,23 @@
+.label {
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.labelInput {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 48px;
+  padding-left: 15px;
+  font-size: 16px;
+}
+
+.error {
+  color: red;
+  font-weight: 400;
+}
+
+.errorBorder {
+  border-color: red;
+}

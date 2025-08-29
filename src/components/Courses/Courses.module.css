@@ -1,0 +1,16 @@
+.courses {
+  display: flex;
+  flex-direction: column;
+  width: 1122px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+
+.header a {
+  margin-left: auto;
+}

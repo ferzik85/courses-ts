@@ -1,0 +1,10 @@
+.emptyListRow {
+  margin: auto;
+  margin-top: 20px;
+}
+
+.emptyListRow:first-of-type {
+  font-weight: bold;
+  margin-top: 300px;
+  font-size: 32px;
+}

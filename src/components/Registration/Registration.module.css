@@ -1,0 +1,51 @@
+.reg {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  background-color: #F7F7F7;
+  flex-grow: 1;
+}
+
+.regHeader {
+  margin: auto;
+  margin-top: 100px;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.regBody {
+  width: 585px;
+  height: 558px;
+  display: flex;
+  margin: auto;
+  margin-top: 0px;
+  background-color: white;
+  flex-direction: column;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.regForm {
+  margin: auto;
+  width: 286px;
+  margin-bottom: 0;
+}
+
+.regInput {
+  width: 266px;
+}
+
+.regButton {
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  height: 50px;
+  width: 282px;
+  font-size: 16px;
+}
+
+.regHelp {
+  margin: auto;
+  margin-top: 0px;
+}
