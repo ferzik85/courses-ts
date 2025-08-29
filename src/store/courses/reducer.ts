@@ -1,4 +1,4 @@
-/* eslint-disable default-param-last */
+ 
 import { ADD_COURSE, UPDATE_COURSE, DELETE_COURSE, SAVE_COURSES } from './types';
 
 export interface CourseState {

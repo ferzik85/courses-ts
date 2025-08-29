@@ -1,4 +1,4 @@
-/* eslint-disable default-param-last */
+ 
 import { LOGIN_USER, LOGOUT_USER } from './types';
 import type { User } from '../../models/User';
 

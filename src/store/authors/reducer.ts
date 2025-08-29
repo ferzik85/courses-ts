@@ -1,4 +1,4 @@
-/* eslint-disable default-param-last */
+ 
 import { ADD_AUTHOR, DELETE_AUTHOR, SAVE_AUTHORS } from './types';
 
 export interface AuthorState {
