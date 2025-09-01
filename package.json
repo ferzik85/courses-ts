@@ -10,7 +10,7 @@
     "lint:fix": "eslint --fix --ext .ts --ext .tsx src",
     "preview": "vite preview",
     "format": "prettier --write ./src",
-    "prepare": "husky",
+    "prepare": "husky install",
     "prepublish": "npm run lint:fix && npm run format"
   },
   "dependencies": {

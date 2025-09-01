@@ -1,39 +1,39 @@
 import {
-  ADD_COURSE,
-  UPDATE_COURSE,
-  DELETE_COURSE,
-  SAVE_COURSES
+	ADD_COURSE,
+	UPDATE_COURSE,
+	DELETE_COURSE,
+	SAVE_COURSES
 } from './types';
 
 export interface CourseState {
-  id: string;
-  title: string;
-  description: string;
-  creationDate: string;
-  duration: number;
-  authors: string[];
+	id: string;
+	title: string;
+	description: string;
+	creationDate: string;
+	duration: number;
+	authors: string[];
 }
 
 export const coursesInitialState: CourseState[] = [];
 
 export const coursesReducer = (state = coursesInitialState, action: any) => {
-  switch (action.type) {
-    case SAVE_COURSES:
-      return action.payload;
+	switch (action.type) {
+		case SAVE_COURSES:
+			return action.payload;
 
-    case ADD_COURSE:
-      return [...state, action.payload];
+		case ADD_COURSE:
+			return [...state, action.payload];
 
-    case UPDATE_COURSE: {
-      return state.map((course) =>
-        course.id === action.payload.id ? action.payload : course
-      );
-    }
+		case UPDATE_COURSE: {
+			return state.map((course) =>
+				course.id === action.payload.id ? action.payload : course
+			);
+		}
 
-    case DELETE_COURSE:
-      return state.filter((course) => course.id !== action.payload);
+		case DELETE_COURSE:
+			return state.filter((course) => course.id !== action.payload);
 
-    default:
-      return state;
-  }
+		default:
+			return state;
+	}
 };

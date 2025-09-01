@@ -17,36 +17,36 @@ store.dispatch(getAuthors());
 store.dispatch(getCourses());
 
 createRoot(document.getElementById('root')!).render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Navigate to="/login" />} />
-          <Route path="login" element={<Login />} />
-          <Route path="registration" element={<Registration />} />
-          <Route path="courses" element={<App />}>
-            <Route path=":courseId" element={<CourseInfo />} />
-            <Route
-              path="add"
-              element={
-                <PrivateRoute>
-                  <CourseForm />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="update/:courseId"
-              element={
-                <PrivateRoute>
-                  <CourseForm />
-                </PrivateRoute>
-              }
-            />
-            <Route index element={<Courses />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </Provider>
+	<Provider store={store}>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Layout />}>
+					<Route index element={<Navigate to="/login" />} />
+					<Route path="login" element={<Login />} />
+					<Route path="registration" element={<Registration />} />
+					<Route path="courses" element={<App />}>
+						<Route path=":courseId" element={<CourseInfo />} />
+						<Route
+							path="add"
+							element={
+								<PrivateRoute>
+									<CourseForm />
+								</PrivateRoute>
+							}
+						/>
+						<Route
+							path="update/:courseId"
+							element={
+								<PrivateRoute>
+									<CourseForm />
+								</PrivateRoute>
+							}
+						/>
+						<Route index element={<Courses />} />
+					</Route>
+					<Route path="*" element={<Navigate to="/login" />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
+	</Provider>
 );
