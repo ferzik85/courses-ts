@@ -12,14 +12,23 @@ export interface ButtonProps {
   className?: string | null;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, onClick, type = 'button', formName, className = null }) => {
-	return (
-		<button type={type} form={formName} className={classnames(styles.button, className)} onClick={onClick}>
-			{label}
-		</button>
-	);
-}
+const Button: React.FC<ButtonProps> = ({
+  label,
+  onClick,
+  type = 'button',
+  formName,
+  className = null
+}) => {
+  return (
+    <button
+      type={type}
+      form={formName}
+      className={classnames(styles.button, className)}
+      onClick={onClick}
+    >
+      {label}
+    </button>
+  );
+};
 
 export default Button;
-
-

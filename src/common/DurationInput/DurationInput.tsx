@@ -13,24 +13,39 @@ export interface DurationInputProps {
   inputClassName?: string | null;
 }
 
-export const DurationInput: React.FC<DurationInputProps> = ({ name, duration, onChange, isInvalid, inputClassName = null }) => {
-	const handleValueChange = (value: string) => {
-		let val = value;
-		if (!validateDuration(value)) val = '';
-		onChange(val);
-	};
+export const DurationInput: React.FC<DurationInputProps> = ({
+  name,
+  duration,
+  onChange,
+  isInvalid,
+  inputClassName = null
+}) => {
+  const handleValueChange = (value: string) => {
+    let val = value;
+    if (!validateDuration(value)) val = '';
+    onChange(val);
+  };
 
-	const assignInputClasses = () =>
-		isInvalid ? classnames(styles.durationInput, inputClassName, styles.errorBorder) : classnames(styles.durationInput, inputClassName);
+  const assignInputClasses = () =>
+    isInvalid
+      ? classnames(styles.durationInput, inputClassName, styles.errorBorder)
+      : classnames(styles.durationInput, inputClassName);
 
-	return (
-		<label className={styles.duration}>
-			{name}
-			<div>
-				<Input value={duration} onChange={handleValueChange} className={assignInputClasses()} />
-				<Duration duration={validateDuration(duration) ? duration : 0} className={styles.durationHours} />
-			</div>
-			{isInvalid && <p className={styles.error}>{name} is required.</p>}
-		</label>
-	);
-}
+  return (
+    <label className={styles.duration}>
+      {name}
+      <div>
+        <Input
+          value={duration}
+          onChange={handleValueChange}
+          className={assignInputClasses()}
+        />
+        <Duration
+          duration={validateDuration(duration) ? duration : 0}
+          className={styles.durationHours}
+        />
+      </div>
+      {isInvalid && <p className={styles.error}>{name} is required.</p>}
+    </label>
+  );
+};

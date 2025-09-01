@@ -8,8 +8,6 @@ export interface PrivateRouteProps {
 }
 
 export function PrivateRoute({ children }: PrivateRouteProps) {
-	const isAdminUser = useSelector(isAdmin);
-	return isAdminUser ? children : <Navigate to='/courses' />;
+  const isAdminUser = useSelector(isAdmin);
+  return isAdminUser ? children : <Navigate to="/courses" />;
 }
-
-

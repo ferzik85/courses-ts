@@ -1,8 +1,8 @@
-import { backendUrl } from "../../const/AppConsts";
-import type { Data } from "../../models/Data";
-import type { User } from "../../models/User";
-import { ParseResponseAsync } from "../../utils/ParseResponse";
-import { isSuccessful } from "../../models/Data";
+import { backendUrl } from '../../const/AppConsts';
+import type { Data } from '../../models/Data';
+import type { User } from '../../models/User';
+import { ParseResponseAsync } from '../../utils/ParseResponse';
+import { isSuccessful } from '../../models/Data';
 
 export interface LoginResult {
   ok: boolean;
@@ -15,15 +15,15 @@ export async function loginUserAsync(
 ): Promise<LoginResult> {
   try {
     const response = await fetch(`${backendUrl}/login`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        accept: "*/*",
+        'Content-Type': 'application/json',
+        accept: '*/*'
       },
       body: JSON.stringify({
         email,
-        password,
-      }),
+        password
+      })
     });
     const data = await ParseResponseAsync<Data<string>>(response);
     return {

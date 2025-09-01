@@ -8,17 +8,22 @@ export interface InputProps {
   className?: string | null;
 }
 
-const Input: React.FC<InputProps> = ({ value = '', onChange, className = null}) => {
+const Input: React.FC<InputProps> = ({
+  value = '',
+  onChange,
+  className = null
+}) => {
   return (
     <input
       type="text"
       value={value}
       className={classnames(styles.input, className)}
       placeholder="Input text"
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange?.(e.target.value)}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        onChange?.(e.target.value)
+      }
     />
   );
 };
 
 export default Input;
-

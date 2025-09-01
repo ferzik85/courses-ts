@@ -1,11 +1,11 @@
-import type { User } from "../models/User";
+import type { User } from '../models/User';
 
-const activeUserKey = "activeUser";
+const activeUserKey = 'activeUser';
 
 function safeParse(json: string): User {
   try {
     const user = JSON.parse(json);
-    return user && typeof user === "object" ? (user as User) : {} as User;
+    return user && typeof user === 'object' ? (user as User) : ({} as User);
   } catch {
     return {} as User;
   }
@@ -26,7 +26,7 @@ export function putUser(user: User): void {
 }
 
 export function isAdminUser(): boolean {
-  return getUser()?.role?.toLowerCase() === "admin";
+  return getUser()?.role?.toLowerCase() === 'admin';
 }
 
 export function getUserName(): string | null {
@@ -43,5 +43,5 @@ export function getUserRole(): string | null {
 
 export function userTokenIsSet(): boolean {
   const token = getUser()?.token;
-  return typeof token === "string" && token.length > 0;
+  return typeof token === 'string' && token.length > 0;
 }

@@ -5,12 +5,12 @@ import TextArea from '../TextArea/TextArea';
 import styles from './LabeledInput.module.css';
 
 export interface InputProps {
-	name: string;
-	onChange: (value: string) => void;
-	isInvalid: boolean;
-	inputClassName?: string | null;
-	isTextArea?: boolean;
-	value?: string;
+  name: string;
+  onChange: (value: string) => void;
+  isInvalid: boolean;
+  inputClassName?: string | null;
+  isTextArea?: boolean;
+  value?: string;
 }
 
 const LabeledInput: React.FC<InputProps> = ({
@@ -19,10 +19,14 @@ const LabeledInput: React.FC<InputProps> = ({
   onChange,
   isInvalid,
   inputClassName = null,
-  isTextArea,
+  isTextArea
 }) => {
   const defaultClassNames = classnames(styles.labelInput, inputClassName);
-  const errorClassNames = classnames(styles.labelInput,inputClassName,styles.errorBorder);
+  const errorClassNames = classnames(
+    styles.labelInput,
+    inputClassName,
+    styles.errorBorder
+  );
   const assignInputClasses = isInvalid ? errorClassNames : defaultClassNames;
   const inputElement = (
     <Input value={value} onChange={onChange} className={assignInputClasses} />

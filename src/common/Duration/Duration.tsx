@@ -8,15 +8,15 @@ export interface DurationProps {
   className?: string | null;
 }
 
-const Duration: React.FC<DurationProps> = ({ duration, className =null }) => {
-	const formattedDuration = formatDuration(duration).split(' ');
-	const formattedTime = formattedDuration[0];
-	const formattedText = formattedDuration[1];
-	return (
-		<span className={classnames(styles.duration, className)}>
-			<b>{formattedTime}</b> {formattedText}
-		</span>
-	);
-}
+const Duration: React.FC<DurationProps> = ({ duration, className = null }) => {
+  const formattedDuration = formatDuration(duration).split(' ');
+  const formattedTime = formattedDuration[0];
+  const formattedText = formattedDuration[1];
+  return (
+    <span className={classnames(styles.duration, className)}>
+      <b>{formattedTime}</b> {formattedText}
+    </span>
+  );
+};
 
 export default Duration;

@@ -11,14 +11,16 @@ export interface TextAreaProps {
 const TextArea: React.FC<TextAreaProps> = ({
   value = '',
   onChange,
-  className = null,
+  className = null
 }) => {
   return (
     <textarea
       value={value}
       className={classnames(styles.area, className)}
       placeholder="Input text"
-      onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => onChange?.(e.target.value)}
+      onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+        onChange?.(e.target.value)
+      }
     />
   );
 };

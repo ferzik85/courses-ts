@@ -1,8 +1,8 @@
-import { backendUrl } from "../../const/AppConsts";
-import { ParseResponseAsync } from "../../utils/ParseResponse";
-import { isSuccessful } from "../../models/Data";
-import type { Course } from "../../models/Course";
-import type { Data } from "../../models/Data";
+import { backendUrl } from '../../const/AppConsts';
+import { ParseResponseAsync } from '../../utils/ParseResponse';
+import { isSuccessful } from '../../models/Data';
+import type { Course } from '../../models/Course';
+import type { Data } from '../../models/Data';
 
 export interface UpdateCourseResult {
   ok: boolean;
@@ -15,25 +15,25 @@ export async function updateCourseApiAsync(
 ): Promise<UpdateCourseResult> {
   try {
     const response = await fetch(`${backendUrl}/courses/${course.id}`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
         Authorization: token,
-        "Content-Type": "application/json",
-        accept: "*/*",
+        'Content-Type': 'application/json',
+        accept: '*/*'
       },
-      body: JSON.stringify(course),
+      body: JSON.stringify(course)
     });
     const data = await ParseResponseAsync<Data<Course>>(response);
-	const ok = response.ok && isSuccessful(data);
+    const ok = response.ok && isSuccessful(data);
     return {
       ok,
-      course: ok ? data?.result ?? null : null,
+      course: ok ? (data?.result ?? null) : null
     };
   } catch {
     // ignore
   }
   return {
     ok: false,
-    course: null,
+    course: null
   };
 }
