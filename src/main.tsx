@@ -11,7 +11,7 @@ import Login from './components/Login/Login';
 import Courses from './components/Courses/Courses';
 import CourseInfo from './components/CourseInfo/CourseInfo';
 import CourseForm from './components/CourseForm/CourseForm';
-import App from './App';
+import App from "./App";
 
 store.dispatch(getAuthors());
 store.dispatch(getCourses());
