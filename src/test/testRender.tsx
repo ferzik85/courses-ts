@@ -4,9 +4,22 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { rootReducer } from '../store/rootReducer';
 
-export const testRender = (component, { user, courses, authors, initialEntries = ['/'], ...options } = {}) => {
-	function Providers({ children }) {
-		const store = configureStore({ reducer: rootReducer, preloadedState: { user, courses, authors } });
+interface TestRenderOptions {
+  user?: any
+  courses?: any
+  authors?: any
+  initialEntries?: any
+};
+
+export const testRender = (
+	component: React.ReactElement,
+	{ user, courses, authors, initialEntries = ['/'], ...options } : TestRenderOptions = {}
+) => {
+	function Providers({ children }: React.PropsWithChildren) {
+		const store = configureStore({
+			reducer: rootReducer,
+			preloadedState: { user, courses, authors }
+		});
 		return (
 			<Provider store={store}>
 				<MemoryRouter initialEntries={initialEntries}>{children}</MemoryRouter>
