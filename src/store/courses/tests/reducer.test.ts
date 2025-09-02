@@ -1,7 +1,7 @@
-import '@testing-library/jest-dom';
+import { describe, test, expect } from 'vitest'
 import { coursesReducer } from '../reducer';
 import { saveCoursesAction, addCourseAction } from '../actions';
-import { courses } from '../../../test';
+import { courses } from '../../../tests';
 
 describe('Courses reducer tests', () => {
 	test('Courses reducer should return the initial state', () => {

@@ -5,15 +5,21 @@ import { Provider } from 'react-redux';
 import { rootReducer } from '../store/rootReducer';
 
 interface TestRenderOptions {
-  user?: any
-  courses?: any
-  authors?: any
-  initialEntries?: any
-};
+	user?: any;
+	courses?: any;
+	authors?: any;
+	initialEntries?: any;
+}
 
 export const testRender = (
 	component: React.ReactElement,
-	{ user, courses, authors, initialEntries = ['/'], ...options } : TestRenderOptions = {}
+	{
+		user,
+		courses,
+		authors,
+		initialEntries = ['/'],
+		...options
+	}: TestRenderOptions = {}
 ) => {
 	function Providers({ children }: React.PropsWithChildren) {
 		const store = configureStore({
