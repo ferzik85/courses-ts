@@ -9,7 +9,7 @@ export interface ButtonProps {
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 	type?: ButtonType;
 	formName?: string;
-	className?: string | null;
+	className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({

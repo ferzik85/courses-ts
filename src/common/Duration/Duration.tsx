@@ -4,8 +4,8 @@ import styles from './Duration.module.css';
 import formatDuration from '../../utils/FormatDuration';
 
 export interface DurationProps {
-	duration: number | string;
-	className?: string | null;
+	duration: number;
+	className?: string;
 }
 
 const Duration: React.FC<DurationProps> = ({ duration, className = null }) => {

@@ -25,6 +25,7 @@ createRoot(document.getElementById('root')!).render(
 					<Route path="login" element={<Login />} />
 					<Route path="registration" element={<Registration />} />
 					<Route path="courses" element={<App />}>
+						<Route index element={<Courses />} />
 						<Route path=":courseId" element={<CourseInfo />} />
 						<Route
 							path="add"
@@ -42,7 +43,6 @@ createRoot(document.getElementById('root')!).render(
 								</PrivateRoute>
 							}
 						/>
-						<Route index element={<Courses />} />
 					</Route>
 					<Route path="*" element={<Navigate to="/login" />} />
 				</Route>

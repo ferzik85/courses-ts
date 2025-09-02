@@ -9,7 +9,7 @@ export interface ButtonInputProps {
 	buttonName: string;
 	onClick: (value: string) => void;
 	validateInput: (value: string) => boolean;
-	inputClassName?: string | null;
+	inputClassName?: string;
 }
 
 export const ButtonInput: React.FC<ButtonInputProps> = ({

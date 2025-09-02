@@ -1,10 +1,7 @@
-function formatDuration(duration: number | string): string {
-	const numericDuration =
-		typeof duration === 'string' ? parseFloat(duration) : duration;
-	if (!Number.isFinite(numericDuration) || numericDuration < 0)
-		return '00:00 hours';
+function formatDuration(duration: number): string {
+	if (!Number.isFinite(duration) || duration < 0) return '00:00 hours';
 
-	const totalMinutes = Math.floor(numericDuration);
+	const totalMinutes = Math.floor(duration);
 	const hours = Math.floor(totalMinutes / 60);
 	const minutes = totalMinutes % 60;
 
