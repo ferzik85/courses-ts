@@ -1,4 +1,4 @@
-import { describe, test, expect } from 'vitest'
+import { describe, test, expect } from 'vitest';
 import { coursesReducer } from '../reducer';
 import { saveCoursesAction, addCourseAction } from '../actions';
 import { courses } from '../../../tests';
