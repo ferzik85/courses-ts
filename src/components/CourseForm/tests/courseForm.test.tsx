@@ -4,7 +4,6 @@ import { screen, cleanup } from '@testing-library/react';
 import { testRender, authors, click } from '../../../tests';
 import CourseForm from '../CourseForm';
 import AuthorItemStyles from '../components/AuthorItem/AuthorItem.module.css';
-//import type { AppDispatch } from '../../../store';
 
 const getAuthorItems = (authorsPanel: string): HTMLCollectionOf<Element> => {
 	const parent = screen.getByText(authorsPanel).parentElement as HTMLElement;
@@ -30,19 +29,13 @@ const deleteCourseAuthorButton = (authorPosition: number): HTMLElement =>
 
 // NOTE: it is not recommended to mock React-Redux hooks (useDispatch),
 // but it is required to check that dispatch is called by the task
-// const mockDispatchFn = vi.fn();
-// vi.mock('react-redux', () => ({
-// 	...vi.requireActual('react-redux'),
-// 	appDispatch: () => mockDispatchFn,
-// }));
+const mockDispatchFn = vi.fn();
 
-const dispatchSpy = vi.fn();
 vi.mock('react-redux', async () => {
-	const actual =
-		await vi.importActual<typeof import('react-redux')>('react-redux');
+	const actual = await vi.importActual('react-redux');
 	return {
 		...actual,
-		useDispatch: () => dispatchSpy
+		useDispatch: () => mockDispatchFn
 	};
 });
 
@@ -59,16 +52,14 @@ describe('CourseForm tests', () => {
 		const addAnna = getAddAuthorButton('Anna Sidorenko');
 		click(addNicolas);
 		click(addAnna);
-
 		expect(getAuthorItems('Authors').length).toBe(authors.length);
 		expect(getAuthorItems('Course Authors').length).toBe(2);
 	});
 
-	test('CourseForm "Create author" button click should call dispatch', () => {
+	test('CourseForm "CREATE AUTHOR" button click should call dispatch', () => {
 		const createAuthorButton = screen.getByText('CREATE AUTHOR');
 		click(createAuthorButton);
-
-		const addAuthorThunkFunction = dispatchSpy.mock.calls[0][0].name;
+		const addAuthorThunkFunction = mockDispatchFn.mock.calls[0][0].name;
 		expect(addAuthorThunkFunction).toBe('addAuthorToDbAndStore');
 	});
 

@@ -28,9 +28,10 @@ export const ButtonInput: React.FC<ButtonInputProps> = ({
 
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		const invalid = !validateInput(value);
-		setValueIsInvalid(invalid);
-		if (invalid) return;
+		const invalidAuthorName = !validateInput(value);
+		setValueIsInvalid(invalidAuthorName);
+		// a bug exists here: valueIsInvalid is outdated and not updated by calling setValueIsInvalid(invalidAuthorName);
+		if (valueIsInvalid) return;
 		onClick(value);
 		setValue('');
 	};

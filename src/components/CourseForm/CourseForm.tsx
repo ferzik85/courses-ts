@@ -18,7 +18,7 @@ import styles from './CourseForm.module.css';
 function CourseForm() {
 	const formId = 'courseCreateOrEditForm';
 	const navigate = useNavigate();
-	const appDispatch = useDispatch<AppDispatch>();
+	const dispatch = useDispatch<AppDispatch>();
 	const params = useParams();
 	const courseId = params.courseId ?? null;
 	const isAddForm = courseId == null;
@@ -76,11 +76,13 @@ function CourseForm() {
 		]);
 	};
 
-	const handleCreateAuthor = (name: string) => appDispatch(addAuthor(name));
+	const handleCreateAuthor = (name: string) => {
+		dispatch(addAuthor(name));
+	};
 
 	const handleDeleteAuthor = (e: React.MouseEvent, authorId: string) => {
 		e.preventDefault();
-		appDispatch(deleteAuthor(authorId));
+		dispatch(deleteAuthor(authorId));
 		handleRemoveAuthorFromCourse(null, authorId);
 	};
 
@@ -106,9 +108,9 @@ function CourseForm() {
 			authors: [...courseAuthorIds]
 		};
 		if (isAddForm) {
-			appDispatch(addCourse(course));
+			dispatch(addCourse(course));
 		} else {
-			appDispatch(
+			dispatch(
 				updateCourse({
 					...course,
 					id: courseId
