@@ -11,9 +11,9 @@
     "preview": "vite preview",
     "format": "prettier --write ./src",
     "prepare": "husky install",
-    "prepublish": "npm run lint:fix && npm run format",
     "test": "vitest",
-    "test:once": "vitest run"
+    "test:once": "vitest run",
+    "prepublish": "npm run lint:fix && npm run format"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
